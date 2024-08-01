@@ -1,6 +1,7 @@
 # Descrição do Projeto 📜
 
-descricaodoprojeto descricaodoprojeto descricaodoprojeto descricaodoprojeto descricaodoprojeto descricaodoprojeto descricaodoprojeto descricaodoprojeto descricaodoprojeto descricaodoprojeto descricaodoprojeto descricaodoprojeto
+O projeto Beedoo QA Challenge é uma aplicação web com foco em gestão de cursos online. Esta plataforma permite que os professores cadastrem cursos, e também que os interessados visualizem uma lista de cursos disponíveis. <br>
+O objetivo principal é ter uma interface simples e intuitiva, onde existe a facilidade para quem cadastra os cursos e para quem está a procura de um curso.
 
 ## User Stories ☕️
 
