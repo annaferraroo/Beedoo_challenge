@@ -3,7 +3,7 @@
 <p>O projeto Beedoo QA Challenge é uma aplicação web com foco em gestão de cursos online. Esta plataforma simples e intuitiva permite que os professores cadastrem cursos, e também que os interessados visualizem uma lista de cursos disponíveis.</p>
 <p>O objetivo principal é trazer a facilidade tanto para quem cadastra o curso, quanto para a visualização de quem está interessado em ingressar no curso.</p>
 
-## Decisões Tomadas para as Histórias de Usuário
+## Decisões Tomadas para as Histórias de Usuário 💡
 
 <b>Identificação das Principais Funcionalidades:</b><br>
   <blockquote>Dividimos as histórias de usuário em duas funcionalidades principais: Cadastro de Curso e Listagem de Cursos, para focar nos requisitos específicos de cada uma.</blockquote><br>
@@ -16,7 +16,7 @@
 <b>Uso de Gherkin para Especificação de Testes:</b><br>
   <blockquote>Optamos por escrever casos de teste em Gherkin para facilitar a automação e a compreensão dos testes por todos os stakeholders.</blockquote>
 
-## User Stories ☕️
+## User Stories 👩👨
 
 <b>Funcionalidades Principais:</b> <br>
 <blockquote><ul>
@@ -112,7 +112,7 @@
 
 ```
 
-## Cenários e Casos de Teste 🎉
+## Cenários e Casos de Teste 🖥
 
 <b>Cadastrar curso</b><br>
 <em>Cenários de Sucesso:</em><br>
@@ -143,7 +143,7 @@
 </ol></blockquote>
 
 
-## Passo a passo para a execução dos testes 🔥
+## Passo a passo para a execução dos testes 📑
 
 <b>Preparação do Ambiente</b><br>
   <blockquote><i>Acesse o Site:</i> Abra o navegador e acesse o site fornecido para o desafio: Beedoo AI Learning.<br>
@@ -177,7 +177,7 @@
     <blockquote>Clique no nome de um curso listado.<br>
     Confirme se a página de detalhes do curso exibe todas as informações corretamente (nome, descrição, instrutor, URL da imagem de capa, datas de início e fim, número de vagas, e tipo de curso).</blockquote>
 
-## Links 🦄
+## Links 🔗
 
 [Planilha](https://docs.google.com/spreadsheets/d/19Dex-_tBeaeDBHPwLD0uBl-XhqSXhnAHVD4q49DShLU/edit?usp=sharing) <br>
 [Evidências](https://drive.google.com/drive/folders/1qpJP1V3aqK9uEojMvoir4tLXjFckOInq?usp=drive_link)
