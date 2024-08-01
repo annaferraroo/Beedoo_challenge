@@ -16,7 +16,7 @@
 <b>Uso de Gherkin para Especificação de Testes:</b><br>
   <blockquote>Optamos por escrever casos de teste em Gherkin para facilitar a automação e a compreensão dos testes por todos os stakeholders.</blockquote>
 
-## User Stories 👩👨
+## Histórias do Usuário 👩👨
 
 <b>Funcionalidades Principais:</b> <br>
 <blockquote><ul>
