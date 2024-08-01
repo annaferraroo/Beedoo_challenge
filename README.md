@@ -4,8 +4,17 @@ descricaodoprojeto descricaodoprojeto descricaodoprojeto descricaodoprojeto desc
 
 ## User Stories ☕️
 
-User story - professor que cadastra os cursos
-User story - futuros alunos que irão escolher qual curso querem fazer
+<b>Funcionalidades Principais:</b> <br>
+<li>Listar Cursos</li>
+<li>Cadastrar Curso</li>
+<br>
+<b>Usuários:</b><br>
+<li>Professor</li>
+<li>Interessado</li>
+<br>
+<b>Definição do User Story</b><br>
+<li><b>Como</b> professor <b>eu quero</b> cadastrar cursos <b>para que</b> os interessados possam ver quais cursos oferecemos.</li>
+<li><b>Como</b> interessado <b>eu quero</b> ver os cursos disponíveis <b>para que</b> eu possa escolher em qual vou me cadastrar.</li>
 
 ## Cenários e Casos de Teste 🎉
 
