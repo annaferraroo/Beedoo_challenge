@@ -100,19 +100,19 @@
 1. Uma mensagem "Curso cadastrado com sucesso" deve ser exibida após o cadastro bem-sucedido.
 2. A mensagem deve ser clara e visível.
 
-## História de Usuário 6: Visualizar Detalhes do Curso
+## História de Usuário 6: Exclusão de Curso
 
-**Como** interessado,  
-**Eu quero** clicar no nome de um curso na lista de cursos,  
-**Para que** eu possa ver os detalhes completos do curso.
+**Como** professor,
+**Eu quero** poder excluir um curso
+**Para que** caso cadastre errado ou o curso não esteja mais disponível, eu possa excluí-lo
 
 ### Critérios de Aceitação:
-1. Ao clicar no nome de um curso na lista de cursos, deve-se abrir uma página com os detalhes do curso.
-2. A página de detalhes deve incluir nome do curso, descrição, instrutor, URL da imagem de capa, datas de início e fim, número de vagas, e tipo de curso.
+1. Uma mensagem "Curso excluído com sucesso" deve ser exibida após a exclusão do curso.
+2. O curso não deve mais ser exibido na lista de cursos.
 
 ```
 
-## Cenários e Casos de Teste 🖥
+## Cenários de Teste 🖥
 
 <b>Cadastrar curso</b><br>
 <em>Cenários de Sucesso:</em><br>
@@ -120,6 +120,8 @@
   <li>Cadastro de curso com todos os campos preenchidos corretamente</li>
   <li>Cadastro de curso com data de início e fim corretas</li>
   <li>Cadastro de curso com URL de imagem válida</li>
+  <li>Cadastro de curso com endereço preenchido, caso tipo de teste seja presencial</li>
+  <li>Cadastro de curso com link de inscrição preenchido, caso tipo de teste seja online</li>
 </ol></blockquote>
 <br>
 <em>Cenários de Erro:</em><br>
@@ -128,19 +130,251 @@
   <li>Falha no cadastro de curso com data de fim anterior à data de início</li>
   <li>Falha no cadastro de curso com URL de imagem inválida</li>
   <li>Falha no cadastro de curso com número de vagas negativo</li>
+  <li>Falha no cadastro de curso sem endereço preenchido, caso o tipo de curso seja presencial</li>
+  <li>Falaha no cadastro de curso sem link de inscrição preenchido, caso o tipo de curso seja online</li>
 </ol><br></blockquote>
 <b>Listar cursos</b><br>
 <em>Cenários de Sucesso:</em><br>
 <blockquote><ol>
   <li>Listar todos os cursos disponíveis</li>
-  <li>Visualizar detalhes de um curso</li>
 </ol></blockquote>
 <br>
 <em>Cenários de Erro:</em><br>
 <blockquote><ol>
   <li>Falha na atualização de novos cursos</li>
-  <li>Falha na visualização dos cursos</li>
 </ol></blockquote>
+
+## Casos de Teste
+
+<b>Casos de Teste - Cadastrar Curso</b>
+
+CT001.001 - Cadastro de Curso com todos os campos preenchidos corretamente.
+<blockquote>Funcionalidade: Cadastro de Curso<br>
+  Como professor<br>
+  Eu quero cadastrar um curso preenchendo todos os campos corretamente<br>
+  Para que o curso seja registrado no sistema<br>
+<br>
+Cenário: Cadastro de curso com todos os campos preenchidos<br>
+  Dado que eu estou na página de cadastro de curso<br>
+  Quando eu preencho todos os campos corretamente<br>
+  E clico no botão "Cadastrar Curso"<br>
+  Então eu vejo a mensagem "Curso cadastrado com sucesso"<br>
+  E o curso é cadastrado e volta à tela inicial </blockquote>
+
+CT001.002 - Cadastro de Curso com o campo "Nome do Curso" em branco.
+<blockquote>Funcionalidade: Cadastro de Curso<br>
+  Como professor<br>
+  Eu quero ver uma mensagem de erro quando o campo "Nome do Curso" estiver em branco<br>
+  Para que eu saiba que o campo é obrigatório<br>
+<br>
+Cenário: Campo "Nome do Curso" em branco<br>
+  Dado que eu estou na página de cadastro de curso<br>
+  Quando eu preencho todos os campos corretamente exceto "Nome do Curso"<br>
+  E clico no botão "Cadastrar Curso"<br>
+  Então eu vejo uma mensagem de erro "O campo Nome do Curso é obrigatório"<br>
+  E o curso não é cadastrado </blockquote>
+
+CT001.003 - Cadastro de Curso com o campo "Descrição do Curso" em branco.
+<blockquote> Funcionalidade: Cadastro de Curso<br>
+  Como professor<br>
+  Eu quero ver uma mensagem de erro quando o campo "Descrição do Curso" estiver em branco<br>
+  Para que eu saiba que o campo é obrigatório<br>
+<br>
+Cenário: Campo "Descrição do Curso" em branco<br>
+  Dado que eu estou na página de cadastro de curso<br>
+  Quando eu preencho todos os campos corretamente exceto "Descrição do Curso"<br>
+  E clico no botão "Cadastrar Curso"<br>
+  Então eu vejo uma mensagem de erro "O campo Descrição do Curso é obrigatório"<br>
+  E o curso não é cadastrado </blockquote>
+
+CT001.004 - Cadastro de Curso com o campo "Instrutor" em branco.
+<blockquote>Funcionalidade: Cadastro de Curso<br>
+  Como professor<br>
+  Eu quero ver uma mensagem de erro quando o campo "Instrutor" estiver em branco<br>
+  Para que eu saiba que o campo é obrigatório<br>
+<br>
+Cenário: Campo "Instrutor" em branco<br>
+  Dado que eu estou na página de cadastro de curso<br>
+  Quando eu preencho todos os campos corretamente exceto "Instrutor"<br>
+  E clico no botão "Cadastrar Curso"<br>
+  Então eu vejo uma mensagem de erro "O campo Instrutor é obrigatório"<br>
+  E o curso não é cadastrado</blockquote>
+
+CT001.005 - Cadastro de Curso com o campo "Data de Início" em branco.
+<blockquote>Funcionalidade: Cadastro de Curso<br>
+  Como professor<br>
+  Eu quero ver uma mensagem de erro quando o campo "Data de Início" estiver em branco<br>
+  Para que eu saiba que o campo é obrigatório<br>
+<br>
+Cenário: Campo "Data de Início" em branco<br>
+  Dado que eu estou na página de cadastro de curso<br>
+  Quando eu preencho todos os campos corretamente exceto "Data de Início"<br>
+  E clico no botão "Cadastrar Curso"<br>
+  Então eu vejo uma mensagem de erro "O campo Data de Início é obrigatório"<br>
+  E o curso não é cadastrado</blockquote>
+
+CT001.006 - Cadastro de Curso com o campo "Data de Fim" em branco.
+<blockquote>Funcionalidade: Cadastro de Curso<br>
+  Como professor<br>
+  Eu quero ver uma mensagem de erro quando o campo "Data de Fim" estiver em branco<br>
+  Para que eu saiba que o campo é obrigatório<br>
+<br>
+Cenário: Campo "Data de Fim" em branco<br>
+  Dado que eu estou na página de cadastro de curso<br>
+  Quando eu preencho todos os campos corretamente exceto "Data de Fim"<br>
+  E clico no botão "Cadastrar Curso"<br>
+  Então eu vejo uma mensagem de erro "O campo Data de Fim é obrigatório"<br>
+  E o curso não é cadastrado</blockquote>
+
+CT001.007 - Cadastro de Curso com o campo "URL da Imagem de Capa" em branco.
+<blockquote>Funcionalidade: Cadastro de Curso<br>
+  Como professor<br>
+  Eu quero ver uma mensagem de erro quando o campo "URL da Imagem de Capa" estiver em branco<br>
+  Para que eu saiba que o campo é obrigatório<br>
+<br>
+Cenário: Campo "URL da Imagem de Capa" em branco<br>
+  Dado que eu estou na página de cadastro de curso<br>
+  Quando eu preencho todos os campos corretamente exceto "URL da Imagem de Capa"<br>
+  E clico no botão "Cadastrar Curso"<br>
+  Então eu vejo uma mensagem de erro "O campo URL da Imagem de Capa é obrigatório"<br>
+  E o curso não é cadastrado</blockquote>
+
+CT001.008 - Cadastro de Curso com o campo "Número de Vagas" em branco.
+<blockquote>Funcionalidade: Cadastro de Curso<br>
+  Como professor<br>
+  Eu quero ver uma mensagem de erro quando o campo "Número de Vagas" estiver em branco<br>
+  Para que eu saiba que o campo é obrigatório<br>
+<br>
+Cenário: Campo "Número de Vagas" em branco<br>
+  Dado que eu estou na página de cadastro de curso<br>
+  Quando eu preencho todos os campos corretamente exceto "Número de Vagas"<br>
+  E clico no botão "Cadastrar Curso"<br>
+  Então eu vejo uma mensagem de erro "O campo Número de Vagas é obrigatório"<br>
+  E o curso não é cadastrado</blockquote>
+
+CT001.009 - Cadastro de Curso com o campo "Tipo de Curso" sem selecionar opção.
+<blockquote>Funcionalidade: Cadastro de Curso<br>
+  Como professor<br>
+  Eu quero ver uma mensagem de erro quando o campo "Tipo de Curso" não tiver uma opção selecionada<br>
+  Para que eu saiba que o campo é obrigatório<br>
+<br>
+Cenário: Campo "Tipo de Curso" sem selecionar opção<br>
+  Dado que eu estou na página de cadastro de curso<br>
+  Quando eu preencho todos os campos corretamente exceto "Tipo de Curso"<br>
+  E clico no botão "Cadastrar Curso"<br>
+  Então eu vejo uma mensagem de erro "O campo Tipo de Curso é obrigatório"<br>
+  E o curso não é cadastrado</blockquote>
+
+CT001.010 - Cadastro de Curso com o campo "Tipo de Curso" selecionado como "Presencial" sem preencher o Endereço.
+<blockquote>Funcionalidade: Cadastro de Curso<br>
+  Como professor<br>
+  Eu quero ver uma mensagem de erro quando o campo "Tipo de Curso" estiver selecionado como "Presencial" sem preencher o endereço<br>
+  Para que eu saiba que o campo é obrigatório<br>
+<br>
+Cenário: Tipo de Curso selecionado como "Presencial" sem endereço<br>
+  Dado que eu estou na página de cadastro de curso<br>
+  Quando eu preencho todos os campos corretamente<br>
+  E seleciono a opção "Presencial" do campo "Tipo de Curso"<br>
+  E deixo o campo "Endereço" em branco<br>
+  E clico no botão "Cadastrar Curso"<br>
+  Então eu vejo uma mensagem de erro "O campo Endereço é obrigatório"<br>
+  E o curso não é cadastrado</blockquote>
+
+CT001.011 - Cadastro de Curso com o campo "Tipo de Curso" selecionado como "Online" sem preencher o Link de Inscrição.
+<blockquote>Funcionalidade: Cadastro de Curso<br>
+  Como professor<br>
+  Eu quero ver uma mensagem de erro quando o campo "Tipo de Curso" estiver selecionado como "Online" sem preencher o link de inscrição<br>
+  Para que eu saiba que o campo é obrigatório<br>
+<br>
+Cenário: Tipo de Curso selecionado como "Online" sem link de inscrição<br>
+  Dado que eu estou na página de cadastro de curso<br>
+  Quando eu preencho todos os campos corretamente<br>
+  E seleciono a opção "Online" do campo "Tipo de Curso"<br>
+  E deixo o campo "Link de Inscrição" em branco<br>
+  E clico no botão "Cadastrar Curso"<br>
+  Então eu vejo uma mensagem de erro "O campo Link de Inscrição é obrigatório"<br>
+  E o curso não é cadastrado</blockquote>
+
+CT001.012 - Cadastro de Curso com o campo "Data de Fim" anterior a "Data de Início".
+<blockquote>Funcionalidade: Cadastro de Curso<br>
+  Como professor<br>
+  Eu quero ver uma mensagem de erro quando a "Data de Fim" for anterior à "Data de Início"<br>
+  Para que eu saiba que as datas estão corretas<br>
+<br>
+Cenário: Data de Fim anterior à Data de Início<br>
+  Dado que eu estou na página de cadastro de curso<br>
+  Quando eu preencho todos os campos corretamente<br>
+  E preencho a "Data de Fim" com uma data anterior à "Data de Início"<br>
+  E clico no botão "Cadastrar Curso"<br>
+  Então eu vejo uma mensagem de erro "O campo Data de Fim não pode ter data anterior ao campo Data de Início"<br>
+  E o curso não é cadastrado</blockquote>
+
+CT001.013 - Cadastro de Curso com o campo "URL da Imagem de Capa" com uma URL inválida.
+<blockquote>Funcionalidade: Cadastro de Curso<br>
+  Como professor<br>
+  Eu quero ver uma mensagem de erro quando a "URL da Imagem de Capa" for inválida<br>
+  Para que eu saiba que o campo está correto<br>
+<br>
+Cenário: URL da Imagem de Capa inválida<br>
+  Dado que eu estou na página de cadastro de curso<br>
+  Quando eu preencho todos os campos corretamente<br>
+  E preencho o campo "URL da Imagem de Capa" com uma URL inválida<br>
+  E clico no botão "Cadastrar Curso"<br>
+  Então eu vejo uma mensagem de erro "O campo URL de Imagem de Capa deve conter uma URL válida"<br>
+  E o curso não é cadastrado</blockquote>
+
+CT001.014 - Cadastro de Curso com o campo "Número de Vagas" negativo.
+<blockquote>Funcionalidade: Cadastro de Curso<br>
+  Como professor<br>
+  Eu quero ver uma mensagem de erro quando o "Número de Vagas" for negativo<br>
+  Para que eu saiba que o campo está correto<br>
+<br>
+Cenário: Número de Vagas negativo<br>
+  Dado que eu estou na página de cadastro de curso<br>
+  Quando eu preencho todos os campos corretamente<br>
+  E preencho o campo "Número de Vagas" com um número negativo<br>
+  E clico no botão "Cadastrar Curso"<br>
+  Então eu vejo uma mensagem de erro "O campo Número de Vagas não pode ser menor que 1"<br>
+  E o curso não é cadastrado</blockquote>
+
+CT001.015 - Cadastro de Curso com todos os campo em branco.
+<blockquote>Funcionalidade: Cadastro de Curso<br>
+  Como professor<br>
+  Eu quero ver uma mensagem de erro quando todos os campos estiverem em branco<br>
+  Para que eu saiba que os campos obrigatórios foram preenchidos<br>
+<br>
+Cenário: Todos os campos em branco<br>
+  Dado que eu estou na página de cadastro de curso<br>
+  Quando eu deixo todos os campos em branco<br>
+  E clico no botão "Cadastrar Curso"<br>
+  Então eu vejo uma mensagem de erro "Mais de um campo obrigatório em branco"<br>
+  E o curso não é cadastrado</blockquote>
+
+<b>Casos de Teste - Listar Cursos</b>
+
+CT002.001 - Visualizar lista de cursos
+<blockquote>Funcionalidade: Lista de Cursos<br>
+  Como interessado<br>
+  Eu quero visualizar a lista de cursos disponíveis<br>
+  Para que eu possa ver quais cursos estão disponíveis<br>
+<br>
+Cenário: Visualizar lista de cursos<br>
+  Dado que eu estou na página "Listar Cursos"<br>
+  Quando eu visualizo a página<br>
+  Então eu vejo a lista de cursos</blockquote>
+
+CT002.002 - Exclusão de curso
+<blockquote>Funcionalidade: Lista de Cursos<br>
+  Como professor<br>
+  Eu quero excluir um curso da lista<br>
+  Para que o curso não esteja mais disponível<br>
+<br>
+Cenário: Excluir curso<br>
+  Dado que eu estou na página "Listar Cursos"<br>
+  E eu encontro o curso que desejo excluir<br>
+  Quando eu clico em "Excluir Curso"<br>
+  Então eu vejo a mensagem "Curso excluído com sucesso"<br>
+  E o curso não aparece mais na lista</blockquote>
 
 
 ## Passo a passo para a execução dos testes 📑
@@ -151,7 +385,7 @@
 <b>Execução dos Casos de Teste</b><br>
   <i>Cadastro de Curso</i><br>
     <blockquote>Acessar a Página de Cadastro de Curso:<br>
-    Clique na opção "Cadastrar Curso" no canto superior direito.<br><br></blockquote>
+    Clique na seunda opção "Cadastrar Curso" no canto superior direito.<br><br></blockquote>
   <i>Preencher o Formulário de Cadastro:</i><br>
     <blockquote>Nome do Curso: Insira um nome válido.<br>
     Descrição do Curso: Insira uma descrição válida.<br>
@@ -173,9 +407,25 @@
   <i>Verificar Listagem de Cursos:</i><br>
     <blockquote>Confirme se todos os cursos cadastrados estão listados.<br>
     Verifique se cada curso listado mostra pelo menos o nome e a descrição.<br><br></blockquote>
-  <i>Visualizar Detalhes do Curso:</i><br>
-    <blockquote>Clique no nome de um curso listado.<br>
-    Confirme se a página de detalhes do curso exibe todas as informações corretamente (nome, descrição, instrutor, URL da imagem de capa, datas de início e fim, número de vagas, e tipo de curso).</blockquote>
+  <i>Excluir Curso</i><br>
+    <blockquote>Acessar a Página Lista de Curso:<br>
+    Clique na primeira opção "Listar Curso" no canto superior direito.<br><br></blockquote>
+  <i>Encontrar o curso desejado:</i><br>
+    <blockquote>Na Lista de Cursos, ache o curso desejado para excluí-lo<br><br></blockquote>
+  <i>Excluir o curso:</i><br>
+    <blockquote>Clique no botão de "Excluir Curso" no curso desejado.<br><br></blockquote>
+  <i>Verificar Mensagem de Sucesso:</i><br>
+    <blockquote>Confirme se a mensagem de sucesso "Curso excluído com sucesso" é exibida.<br><br></blockquote>
+
+## Falhas 🚩
+
+<ul>
+  <li>Não existe login para diferenciar quem pode cadastrar um curso(professor) e quem pode apenas visualizar os cursos disponíveis(interessado). </li>
+  <li>Não existe validação nos campos de cadastro</li>
+  <li>Ao voltar a página mostrar erro 404</li>
+  <li>Após aparecer o erro 404, se clicar em "Back to our site" dá erro 404 novamente</li>
+  <li>Alguns cursos não retornaram a imaagem de capa, mesmo sendo uma URL válida</li>
+</ul>
 
 ## Links 🔗
 
